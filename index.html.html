@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>TapGame</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+    #game-area {
+      position: relative;
+      width: 70vw;
+      height: 70vh;
+      background: url('https://postimg.cc/d7DBDTBD') no-repeat center center;
+      background-size: cover;
+      overflow: hidden;
+    }
+    #target {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    #score {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 2px #04539c;
+    }
+    #actions {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+    #refer-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #374386;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-area">
+    <div id="score">Score: 0</div>
+    <button id="target">Tap Me!</button>
+  </div>
+  <div id="actions">
+    <button id="refer-btn">Get Refer Link</button>
+    <div id="output"></div>
+  </div>
+  <script>
+    let score = localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0;
+
+    const target = document.getElementById("target");
+    const scoreDisplay = document.getElementById("score");
+    const gameArea = document.getElementById("game-area");
+    const referBtn = document.getElementById("refer-btn");
+    const output = document.getElementById("output");
+
+    scoreDisplay.textContent = `Score: ${score}`;
+
+    target.addEventListener("click", () => {
+      score++;
+      scoreDisplay.textContent = `Score: ${score}`;
+      localStorage.setItem("score", score);
+      moveTarget();
+    });
+
+    function moveTarget() {
+      const areaWidth = gameArea.offsetWidth;
+      const areaHeight = gameArea.offsetHeight;
+      const targetWidth = target.offsetWidth;
+      const targetHeight = target.offsetHeight;
+
+      const x = Math.random() * (areaWidth - targetWidth);
+      const y = Math.random() * (areaHeight - targetHeight);
+
+      target.style.left = `${x}px`;
+      target.style.top = `${y}px`;
+    }
+
+    referBtn.addEventListener("click", () => {
+      output.textContent =  ""
+    });
+  </script>
+</body>
+</html>
+
+  
+  
+
+
+    
+
+        
+
+    </a>
+    <a href="task.html" class="nav-item">
+        <i class="fas fa-tasks"></i>
+        <span>TASKS</span>
+
+
+
+
+
+
+</div>
+</div>
+<br> <br>
+<div class="boosters-button">
+
+  <div class="frens-main">
+
+
+            </div>
+        </div>
+
+    </div>
+<div class="frens-invite">
+    <div class="frens-invite-button">
+        <input type="text" value="https://t.me/Tapcoinme_bot" id="link" readonly>
+        <button id="copyButton">Copy Link</button>
+    </div>
+</div>
+
+        </a>
+    </nav>
+    <script src="material/js/cojs.js"></script>
+    <script src="material/js/scripts.js"></script>
+</body>
+</html>
+<a href="invite-friends.html" class="nav-item">
+  <i class="fas fa-user-friends"></i>
+  <span>FRIENDS</span>
+</a>
